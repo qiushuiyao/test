@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="域名备案信息页面">
+    <meta name="keywords" content="备案,ICP,域名备案,网站备案">
+    <title>域名备案信息 - 合规展示页面</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #3b82f6;
+            --text-color: #1f2937;
+            --light-bg: #f8fafc;
+            --white: #ffffff;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --radius: 12px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .logo i {
+            margin-right: 10px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 40px 30px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .card-content {
+            color: #64748b;
+            font-size: 1rem;
+        }
+
+        .icp-section {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 50px;
+            box-shadow: var(--shadow);
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .icp-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+        }
+
+        .icp-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .info-item {
+            text-align: left;
+            padding: 20px;
+            background: var(--light-bg);
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-value {
+            color: #64748b;
+            font-size: 1rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #64748b;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 60px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+
+        .update-time {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .card {
+                padding: 30px 20px;
+            }
+            
+            .icp-section {
+                padding: 30px 20px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h1>域名备案信息公示</h1>
+            <p class="subtitle">本页面用于展示域名备案信息，确保网站合规运营，符合相关法律法规要求。</p>
+        </header>
+
+        <div class="main-content">
+            <div class="card">
+                <div class="card-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3 class="card-title">合规备案</h3>
+                <p class="card-content">本域名已完成工信部ICP备案，备案信息真实有效。网站内容严格遵守中国互联网相关法律法规。</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <h3 class="card-title">网站用途</h3>
+                <p class="card-content">本网站主要用于技术展示、信息分享和合规内容发布。坚持传播正能量，维护清朗网络空间。</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <h3 class="card-title">安全承诺</h3>
+                <p class="card-content">我们致力于保护用户隐私和数据安全，采取有效措施防止网络攻击和信息泄露。</p>
+            </div>
+        </div>
+
+        <section class="icp-section">
+            <div class="icp-badge">
+                <i class="fas fa-certificate"></i> 已备案域名
+            </div>
+            
+            <h2 style="margin-bottom: 20px; color: var(--text-color);">备案信息详情</h2>
+            <p style="color: #64748b; max-width: 800px; margin: 0 auto 40px;">
+                根据《中华人民共和国网络安全法》和《互联网信息服务管理办法》要求，本域名已完成备案登记。
+            </p>
+
+            <div class="icp-info">
+                <div class="info-item">
+                    <div class="info-label">
+                        <i class="fas fa-id-card"></i> 备案主体
+                    </div>
+                    <div class="info-value">个人/企业名称</div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-label">
+                        <i class="fas fa-fingerprint"></i> 备案号
+                    </div>
+                    <div class="info-value">京ICP备XXXXXX号</div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-label">
+                        <i class="fas fa-calendar-alt"></i> 备案时间
+                    </div>
+                    <div class="info-value">2026年4月</div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-label">
+                        <i class="fas fa-map-marker-alt"></i> 备案所在地
+                    </div>
+                    <div class="info-value">北京市</div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>© 2026 域名备案信息页面 | 本页面仅用于备案信息展示</p>
+            
+            <div class="footer-links">
+                <a href="#" class="footer-link">隐私政策</a>
+                <a href="#" class="footer-link">使用条款</a>
+                <a href="#" class="footer-link">联系站长</a>
+                <a href="#" class="footer-link">举报渠道</a>
+            </div>
+
+            <div class="update-time">
+                最后更新: <span id="currentDate"></span> | 本页面自动更新
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // 显示当前日期
+        const now = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('currentDate').textContent = now.toLocaleDateString('zh-CN', options);
+
+        // 备案号点击效果
+        const icpBadge = document.querySelector('.icp-badge');
+        icpBadge.addEventListener('click', function() {
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 150);
+            
+            // 模拟备案号查询
+            alert('备案信息已验证，备案号可在工信部官网查询。');
+        });
+
+        // 卡片悬停效果增强
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                const icon = this.querySelector('.card-icon i');
+                icon.style.transform = 'rotate(15deg) scale(1.1)';
+                icon.style.transition = 'transform 0.3s ease';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                const icon = this.querySelector('.card-icon i');
+                icon.style.transform = 'rotate(0) scale(1)';
+            });
+        });
+
+        // 页面加载动画
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
